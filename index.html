@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
+    <script defer src="./change.js"></script>
+    <link rel="stylesheet" href="change.css">
+    <title>거스름돈 계산기</title>
+</head>
+<body>
+    <div class="whole_frame">
+        <!--팝업창 레이어-->
+        <div id="pop_up_layer" class="pop_up_layer">
+            <span>팝업내용</span>
+            <button class="pop_up_button">OK</button>
+        </div>
+        <!--상품 박스 & 이미지-->
+        <div id="productBox" class="productBox">
+            <div id="basic_popcorn" class="basic_popcorn"><span class="product_img_name basic_pop_name">고소팝콘</span></div>
+            <div id="sweet_popcorn" class="sweet_popcorn"><span class="product_img_name sweet_pop_name">달콤팝콘</span></div>
+            <div id="onion_popcorn" class="onion_popcorn"><span class="product_img_name onion_pop_name">어니언팝콘</span></div>
+            <div id="cheese_popcorn" class="cheese_popcorn"><span class="product_img_name cheese_pop_name">치즈팝콘</span></div>
+            <div id="large_combo" class="large_combo"><span class="product_img_name large_combo_name">라지콤보</span></div>
+            <div id="double_combo" class="double_combo"><span class="product_img_name double_combo_name">더블콤보</span></div>
+            <div id="small_combo" class="small_combo"><span class="product_img_name small_combo_name">스몰콤보</span></div>
+            <div id="hot_americano" class="hot_americano"><span class="product_img_name hot_americano_name">아메리카노</span></div>
+            <div id="ice_americano" class="ice_americano"><span class="product_img_name ice_americano_name">아이스아메리카노</span></div>
+            <div id="soda_drink" class="soda_drink"><span class="product_img_name soda_drink_name">탄산음료</span></div>
+            <div id="nacho_combo" class="nacho_combo"><span class="product_img_name nacho_combo_name">나쵸</span></div>
+            <div id="squid_combo" class="squid_combo"><span class="product_img_name squid_combo_name">오징어</span></div>
+            <div id="hotdog_combo" class="hotdog_combo"><span class="product_img_name hotdog_combo_name">핫도그</span></div>
+        </div>
+        <!--상품 리스트 박스 & 리스트-->
+        <section id="productListFrame" class="productListFrame">
+            <section class="product_standard">
+                <article class="product_title product_name">상품이름</article>
+                <article class="product_title product_price">가격</article>
+                <article class="product_title product_count">수량</article>
+                <article class="product_title product_plus_minus">담기/빼기</article>
+            </section>
+            <li class="product_list_input_frame">
+                <ul class="input_product_1">
+                    <li class="input_product_name">고소팝콘</li>
+                    <li id="input_product_price basic_popcorn_price" class="input_product_price basic_popcorn_price">5,530</li>
+                    <li id="input_product_count basic_popcorn_count" class="input_product_count basic_popcorn_count">0</li>
+                    <button id="basic_popcorn_plus_btn" class="input_product_plus">+</button>
+                    <button id="basic_popcorn_minus_btn" class="input_product_minus">-</button>
+                </ul>
+                <ul class="input_product_2">
+                    <li class="input_product_name">달콤팝콘</li>
+                    <li id="input_product_price sweet_popcorn_price" class="input_product_price sweet_popcorn_price">6,700</li>
+                    <li id="input_product_count sweet_popcorn_count" class="input_product_count sweet_popcorn_count">0</li>
+                    <button id="sweet_popcorn_plus_btn" class="input_product_plus">+</button>
+                    <button id="sweet_popcorn_minus_btn" class="input_product_minus">-</button>
+                </ul>
+                <ul class="input_product_3">
+                    <li class="input_product_name">어니언팝콘</li>
+                    <li id="input_product_price onion_popcorn_price" class="input_product_price onion_popcorn_price">5,880</li>
+                    <li id="input_product_count onion_popcorn_count" class="input_product_count onion_popcorn_count">0</li>
+                    <button id="onion_popcorn_plus_btn" class="input_product_plus">+</button>
+                    <button id="onion_popcorn_minus_btn" class="input_product_minus">-</button>
+                </ul>
+                <ul class="input_product_4">
+                    <li class="input_product_name">치즈팝콘</li>
+                    <li id="input_product_price cheese_popcorn_price" class="input_product_price cheese_popcorn_price">6,150</li>
+                    <li id="input_product_count cheese_popcorn_count" class="input_product_count cheese_popcorn_count">0</li>
+                    <button id="cheese_popcorn_plus_btn" class="input_product_plus">+</button>
+                    <button id="cheese_popcorn_minus_btn" class="input_product_minus">-</button>
+                </ul>
+                <ul class="input_product_5">
+                    <li class="input_product_name">라지콤보</li>
+                    <li id="input_product_price large_combo_price" class="input_product_price large_combo_price">21,340</li>
+                    <li id="input_product_count large_combo_count" class="input_product_count large_combo_count">0</li>
+                    <button id="large_combo_plus_btn" class="input_product_plus">+</button>
+                    <button id="large_combo_minus_btn" class="input_product_minus">-</button>
+                </ul>
+                <ul class="input_product_6">
+                    <li class="input_product_name">더블콤보</li>
+                    <li id="input_product_price double_combo_price" class="input_product_price double_combo_price">15,610</li>
+                    <li id="input_product_count double_combo_count" class="input_product_count double_combo_count">0</li>
+                    <button id="double_combo_plus_btn" class="input_product_plus">+</button>
+                    <button id="double_combo_minus_btn" class="input_product_minus">-</button>
+                </ul>
+                <ul class="input_product_7">
+                    <li class="input_product_name">스몰콤보</li>
+                    <li id="input_product_price small_combo_price" class="input_product_price small_combo_price">9,820</li>
+                    <li id="input_product_count small_combo_count" class="input_product_count small_combo_count">0</li>
+                    <button id="small_combo_plus_btn" class="input_product_plus">+</button>
+                    <button id="small_combo_minus_btn" class="input_product_minus">-</button>
+                </ul>
+                <ul class="input_product_8">
+                    <li class="input_product_name">아메리카노</li>
+                    <li id="input_product_price hot_americano_price" class="input_product_price hot_americano_price">4,690</li>
+                    <li id="input_product_count hot_americano_count" class="input_product_count hot_americano_count">0</li>
+                    <button id="hot_americano_plus_btn" class="input_product_plus">+</button>
+                    <button id="hot_americano_minus_btn" class="input_product_minus">-</button>
+                </ul>
+                <ul class="input_product_9">
+                    <li class="input_product_name">아이스아메리카노</li>
+                    <li id="input_product_price ice_americano_price" class="input_product_price ice_americano_price">6,340</li>
+                    <li id="input_product_count ice_americano_count" class="input_product_count ice_americano_count">0</li>
+                    <button id="ice_americano_plus_btn" class="input_product_plus">+</button>
+                    <button id="ice_americano_minus_btn" class="input_product_minus">-</button>
+                </ul>
+                <ul class="input_product_10">
+                    <li class="input_product_name">탄산음료</li>
+                    <li id="input_product_price soda_drink_price" class="input_product_price soda_drink_price">3,560</li>
+                    <li id="input_product_count soda_drink_count" class="input_product_count soda_drink_count">0</li>
+                    <button id="soda_drink_plus_btn" class="input_product_plus">+</button>
+                    <button id="soda_drink_minus_btn" class="input_product_minus">-</button>
+                </ul>
+                <ul class="input_product_11">
+                    <li class="input_product_name">나쵸</li>
+                    <li id="input_product_price nacho_combo_price" class="input_product_price nacho_combo_price">7,990</li>
+                    <li id="input_product_count nacho_combo_count" class="input_product_count nacho_combo_count">0</li>
+                    <button id="nacho_combo_plus_btn" class="input_product_plus">+</button>
+                    <button id="nacho_combo_minus_btn" class="input_product_minus">-</button>
+                </ul>
+                <ul class="input_product_12">
+                    <li class="input_product_name">오징어</li>
+                    <li id="input_product_price squid_combo_price" class="input_product_price squid_combo_price">2,450</li>
+                    <li id="input_product_count squid_combo_count" class="input_product_count squid_combo_count">0</li>
+                    <button id="squid_combo_plus_btn" class="input_product_plus">+</button>
+                    <button id="squid_combo_minus_btn" class="input_product_minus">-</button>
+                </ul>
+                <ul class="input_product_13">
+                    <li class="input_product_name">핫도그</li>
+                    <li id="input_product_price hotdog_combo_price" class="input_product_price hotdog_combo_price">4,120</li>
+                    <li id="input_product_count hotdog_combo_count" class="input_product_count hotdog_combo_count">0</li>
+                    <button id="hotdog_combo_plus_btn" class="input_product_plus">+</button>
+                    <button id="hotdog_combo_minus_btn" class="input_product_minus">-</button>
+                </ul> 
+                <ul class="input_change_frame">
+                    <li class="input_all_price">총금액 : </li> <div id="input_all_price_box" class="input_all_price_box">0</div>
+                    <li class="input_get_money">받은금액 :</li> <div id="input_get_money_box" class="input_get_money_box">0</div>
+                    <li class="input_change_money">거스름돈 :</li> <div id="input_change_money_box" class="input_change_money_box">0</div>
+                    <button id="change_result_btn" class="change_result_btn">결제</button>
+                    <button id="change_reset_btn" class="change_reset_btn">처음으로</button>
+                </ul>
+            </li>
+        </section>
+
+        <!--지폐 박스 & 이미지 / 잔돈 결과 박스-->
+        <div class="money_img_frame">
+            <div id="change_result_frame" class="change_result_frame">
+                <span class="paper_money_title"><지폐></span>
+                <span class="fifty_thousand_name">오만원 :</span> <div id="fifty_thousand_change_result" class="fifty_thousand_change_result">0</div>
+                <span class="ten_thousand_name">만원 :</span> <div id="ten_thousand_change_result" class="ten_thousand_change_result">0</div>
+                <span class="five_thousand_name">오천원 :</span> <div id="five_thousand_change_result" class="five_thousand_change_result">0</div>
+                <span class="one_thousand_name">천원 :</span> <div id="one_thousand_change_result" class="one_thousand_change_result">0</div>
+                <div class="money_area_line"></div>
+                <span class="coin_money_title"><동전></span>
+                <span class="five_hundred_name">오백원 :</span> <div id="five_hundred_change_result" class="five_hundred_change_result">0</div>
+                <span class="one_hundred_name">백원 :</span> <div id="one_hundred_change_result" class="one_hundred_change_result">0</div>
+                <span class="fifty_won_name">오십원 :</span> <div id="fifty_won_change_result" class="fifty_won_change_result">0</div>
+                <span class="ten_won_name">십원 :</span> <div id="ten_won_change_result" class="ten_won_change_result">0</div>
+            </div>
+            <div id="fifty_thousand_img" class="fifty_thousand_img"></div>
+            <div id="ten_thousand_img" class="ten_thousand_img"></div>
+            <div id="five_thousand_img" class="five_thousand_img"></div>
+            <div id="one_thousand_img" class="one_thousand_img"></div>
+            <div id="five_hundred_img" class="five_hundred_img"></div>
+            <div id="one_hundred_img" class="one_hundred_img"></div>
+            <div id="fifty_won_img" class="fifty_won_img"></div>
+            <div id="ten_won_img" class="ten_won_img"></div>
+        </div>
+    </div>
+</body>
+</html>
